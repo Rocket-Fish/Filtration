@@ -80,6 +80,9 @@ namespace Filtration.ViewModels
             SaveAsCommand = new RelayCommand(async () => await OnSaveAsCommandAsync(), ActiveDocumentIsEditable);
             CloseCommand = new RelayCommand(OnCloseDocumentCommand, ActiveDocumentIsEditable);
 
+            // Fish
+            CreateNewWindow = new RelayCommand(OnCreateWindowCommand, () => ActiveDocumentIsScript);
+
             CopyBlockCommand = new RelayCommand(OnCopyBlockCommand, () => ActiveDocumentIsScript && ActiveScriptHasSelectedBlock);
             CopyBlockStyleCommand = new RelayCommand(OnCopyBlockStyleCommand, () => ActiveDocumentIsScript && ActiveScriptHasSelectedBlock);
             PasteCommand = new RelayCommand(OnPasteCommand, () => ActiveDocumentIsScript && ActiveScriptHasSelectedBlock);
@@ -140,6 +143,10 @@ namespace Filtration.ViewModels
                         SaveCommand.RaiseCanExecuteChanged();
                         SaveAsCommand.RaiseCanExecuteChanged();
                         CloseCommand.RaiseCanExecuteChanged();
+
+                            //Fishy
+                            CreateNewWindow.RaiseCanExecuteChanged();
+
                         CopyBlockCommand.RaiseCanExecuteChanged();
                         PasteCommand.RaiseCanExecuteChanged();
                         ReplaceColorsCommand.RaiseCanExecuteChanged();
@@ -181,6 +188,10 @@ namespace Filtration.ViewModels
         public RelayCommand OpenThemeCommand { get; }
         public RelayCommand SaveCommand { get; }
         public RelayCommand SaveAsCommand { get; }
+
+        //Fishy
+        public RelayCommand CreateNewWindow { get; }
+
         public RelayCommand CopyBlockCommand { get; }
         public RelayCommand CopyBlockStyleCommand { get; }
         public RelayCommand PasteCommand { get; }
@@ -503,6 +514,13 @@ namespace Filtration.ViewModels
                 _messageBoxService.Show("Clipboard Error", "Failed to access the clipboard, copy command not completed.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        // Fish
+        private void OnCreateWindowCommand()
+        {
+            _messageBoxService.Show("Fishy Error", "This Fish Script Workes",
+                MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void OnCopyBlockCommand()

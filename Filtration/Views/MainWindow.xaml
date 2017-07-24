@@ -74,7 +74,8 @@
             </fluent:RibbonTabItem>
             <fluent:RibbonTabItem x:Name="ScriptToolsTabItem" Header="Script Tools" Group="{Binding ElementName=ScriptToolsGroup}" Visibility="{Binding ActiveDocumentIsScript, Converter={StaticResource BooleanVisibilityConverter}, Mode=OneWay}" >
                 <fluent:RibbonGroupBox Header="Clipboard">
-                    <fluent:Button Header="Copy Block" Command="{Binding CopyBlockCommand}" Icon="{StaticResource CopyIcon}" LargeIcon="{StaticResource CopyIcon}" ToolTip="Copy Block (Ctrl+C)"/>
+					<fluent:Button Header="Fishy Window" Command="{Binding CreateNewWindow}" Icon="{StaticResource AddBlockIcon}" LargeIcon="{StaticResource AddBlockIcon}" ToolTip="Create New Window"/>
+					<fluent:Button Header="Copy Block" Command="{Binding CopyBlockCommand}" Icon="{StaticResource CopyIcon}" LargeIcon="{StaticResource CopyIcon}" ToolTip="Copy Block (Ctrl+C)"/>
                     <fluent:Button Header="Paste Block" Command="{Binding PasteCommand}" Icon="{StaticResource PasteIcon}" LargeIcon="{StaticResource PasteIcon}" ToolTip="Paste Block (Ctrl+V)"/>
                     <fluent:Button Header="Copy Style" Command="{Binding CopyBlockStyleCommand}" Icon="{StaticResource CopyIcon}" LargeIcon="{StaticResource CopyIcon}" SizeDefinition="Middle" ToolTip="Copy Style (Ctrl+Shift+C)" />
                     <fluent:Button Header="Paste Style" Command="{Binding PasteBlockStyleCommand}" Icon="{StaticResource PasteStyleIcon}" LargeIcon="{StaticResource PasteIcon}" SizeDefinition="Middle" ToolTip="Paste Style (Ctrl+Shift+V)" />
