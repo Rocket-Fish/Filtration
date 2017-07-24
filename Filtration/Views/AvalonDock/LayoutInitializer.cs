@@ -26,6 +26,17 @@ namespace Filtration.Views.AvalonDock
                 }
             }
 
+            if (anchorableToShow.Content is DisplayWindowViewModel)
+            {
+                var toolsPane = layout.Descendents().OfType<LayoutAnchorablePane>().FirstOrDefault(d => d.Name == "DisplayWindowPlane");
+                if (toolsPane != null)
+                {
+                    // anchorableToShow.CanHide = false;
+                    toolsPane.Children.Add(anchorableToShow);
+                    return true;
+                }
+            }
+
             if (anchorableToShow.Content is BlockGroupBrowserViewModel)
             {
                 var toolsPane = layout.Descendents().OfType<LayoutAnchorablePane>().FirstOrDefault(d => d.Name == "BlockGroupBrowserPane");

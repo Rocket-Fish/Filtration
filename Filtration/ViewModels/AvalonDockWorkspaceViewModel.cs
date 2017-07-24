@@ -18,6 +18,10 @@ namespace Filtration.ViewModels
         ReadOnlyObservableCollection<IDocument> OpenDocuments { get; }
         IItemFilterScriptViewModel ActiveScriptViewModel { get; }
         IThemeEditorViewModel ActiveThemeViewModel { get; }
+
+        //Fishy
+        IDisplayWindowViewModel DisplayWindowViewModel { get; }
+
         ISectionBrowserViewModel SectionBrowserViewModel { get; }
         IBlockGroupBrowserViewModel BlockGroupBrowserViewModel { get; }
         IBlockOutputPreviewViewModel BlockOutputPreviewViewModel { get; }
@@ -32,6 +36,7 @@ namespace Filtration.ViewModels
         private readonly ISectionBrowserViewModel _sectionBrowserViewModel;
         private readonly IBlockGroupBrowserViewModel _blockGroupBrowserViewModel;
         private readonly IBlockOutputPreviewViewModel _blockOutputPreviewViewModel;
+        private readonly IDisplayWindowViewModel _displayWindowViewModel;
 
         private IDocument _activeDocument;
         private IItemFilterScriptViewModel _activeScriptViewModel;
@@ -41,15 +46,19 @@ namespace Filtration.ViewModels
         public AvalonDockWorkspaceViewModel(ISectionBrowserViewModel sectionBrowserViewModel,
             IBlockGroupBrowserViewModel blockGroupBrowserViewModel,
             IStartPageViewModel startPageViewModel,
-            IBlockOutputPreviewViewModel blockOutputPreviewViewModel)
+            IBlockOutputPreviewViewModel blockOutputPreviewViewModel, 
+            IDisplayWindowViewModel displayWindowViewModel)
         {
+            //// fishyfishy
             _sectionBrowserViewModel = sectionBrowserViewModel;
             _blockGroupBrowserViewModel = blockGroupBrowserViewModel;
             _blockOutputPreviewViewModel = blockOutputPreviewViewModel;
+            _displayWindowViewModel = displayWindowViewModel;
 
             _sectionBrowserViewModel.Initialise(this);
             _blockGroupBrowserViewModel.Initialise(this);
             _blockOutputPreviewViewModel.Initialise(this);
+            _displayWindowViewModel.Initialise(this);
 
             _openDocuments = new ObservableCollection<IDocument> {startPageViewModel};
             OpenDocuments = new ReadOnlyObservableCollection<IDocument>(_openDocuments);
@@ -95,6 +104,7 @@ namespace Filtration.ViewModels
         public IBlockGroupBrowserViewModel BlockGroupBrowserViewModel => _blockGroupBrowserViewModel;
         public IBlockOutputPreviewViewModel BlockOutputPreviewViewModel => _blockOutputPreviewViewModel;
         public ISectionBrowserViewModel SectionBrowserViewModel => _sectionBrowserViewModel;
+        public IDisplayWindowViewModel DisplayWindowViewModel => _displayWindowViewModel;
 
         private List<IToolViewModel> _tools;
 
@@ -102,7 +112,8 @@ namespace Filtration.ViewModels
         {
             _sectionBrowserViewModel,
             _blockGroupBrowserViewModel,
-            _blockOutputPreviewViewModel
+            _blockOutputPreviewViewModel,
+            _displayWindowViewModel
         });
 
         public void AddDocument(IDocument document)
@@ -132,6 +143,7 @@ namespace Filtration.ViewModels
                 _sectionBrowserViewModel.ClearDown();
                 _blockGroupBrowserViewModel.ClearDown();
                 _blockOutputPreviewViewModel.ClearDown();
+                _displayWindowViewModel.ClearDown();
             }
 
             _openDocuments.Remove(document);

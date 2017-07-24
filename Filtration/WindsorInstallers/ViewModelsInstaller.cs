@@ -42,6 +42,11 @@ namespace Filtration.WindsorInstallers
                     .LifeStyle.Singleton);
 
             container.Register(
+                Component.For<IDisplayWindowViewModel>()
+                    .ImplementedBy<DisplayWindowViewModel>()
+                    .LifeStyle.Singleton
+                    );
+            container.Register(
                 Component.For<ISectionBrowserViewModel>()
                     .ImplementedBy<SectionBrowserViewModel>()
                     .LifeStyle.Singleton);

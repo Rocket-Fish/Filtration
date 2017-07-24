@@ -197,6 +197,7 @@
     <Compile Include="ViewModels\ItemFilterScriptViewModel.cs" />
     <Compile Include="ViewModels\ToolPanes\BlockOutputPreviewViewModel.cs" />
     <Compile Include="ViewModels\ReplaceColorsViewModel.cs" />
+    <Compile Include="ViewModels\ToolPanes\DisplayWindowViewModel.cs" />
     <Compile Include="ViewModels\ToolPanes\SectionBrowserViewModel.cs" />
     <Compile Include="ViewModels\StartPageViewModel.cs" />
     <Compile Include="ViewModels\ToolPanes\ToolViewModel.cs" />
@@ -250,6 +251,9 @@
     </Compile>
     <Compile Include="Views\ToolPanes\BlockOutputPreviewView.xaml.cs">
       <DependentUpon>BlockOutputPreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ToolPanes\DisplayWindowView.xaml.cs">
+      <DependentUpon>DisplayWindowView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ToolPanes\SectionBrowserView.xaml.cs">
       <DependentUpon>SectionBrowserView.xaml</DependentUpon>
@@ -315,6 +319,10 @@
     <Page Include="Views\ToolPanes\BlockOutputPreviewView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ToolPanes\DisplayWindowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ToolPanes\SectionBrowserView.xaml">
       <SubType>Designer</SubType>

@@ -11,6 +11,9 @@ namespace Filtration.Views.AvalonDock
     {
         public DataTemplate ItemFilterScriptTemplate { get; set; }
         public DataTemplate BlockGroupBrowserTemplate { get; set; }
+
+        //fishyfishy
+        public DataTemplate DisplayWindowTemplate { get; set; }
         public DataTemplate SectionBrowserTemplate { get; set; }
         public DataTemplate BlockOutputPreviewTemplate { get; set; }
         public DataTemplate StartPageTemplate { get; set; }
@@ -29,6 +32,12 @@ namespace Filtration.Views.AvalonDock
             {
                 return ThemeTemplate;
             }
+
+            if (item is DisplayWindowViewModel)
+            {
+                return DisplayWindowTemplate;
+            }
+
 
             if (item is SectionBrowserViewModel)
             {
